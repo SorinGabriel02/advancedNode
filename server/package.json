@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "node backend server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js --ignore tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.771.0",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "jest": "^26.5.3",
+    "migrate-mongoose": "^4.0.0",
+    "mongoose": "^5.10.9",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^6.1.0",
+    "puppeteer": "^5.3.1",
+    "redis": "^3.0.2",
+    "uuid": "^8.3.1"
+  }
+}
