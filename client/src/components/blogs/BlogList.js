@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchBlogs } from "../../actions";
 
-function BlogList(props) {
+function BlogList({ fetchBlogs, blogs }) {
   useEffect(() => {
-    props.fetchBlogs();
-  }, []);
+    fetchBlogs();
+  }, [fetchBlogs]);
 
   function renderBlogs() {
-    return map(props.blogs, (blog) => {
+    return map(blogs, (blog) => {
       return (
         <div className="card darken-1 horizontal" key={blog._id}>
           <div className="card-stacked">

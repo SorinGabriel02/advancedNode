@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchBlog } from "../../actions";
 
-function BlogShow(props) {
+function BlogShow({ fetchBlog, match, blog }) {
   useEffect(() => {
-    props.fetchBlog(props.match.params._id);
-  }, []);
+    fetchBlog(match.params._id);
+  }, [fetchBlog, match.params._id]);
 
-  if (!props.blog) {
+  if (!blog) {
     return "";
   }
 
-  const { title, content } = props.blog;
+  const { title, content } = blog;
 
   return (
     <div>

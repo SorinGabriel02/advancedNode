@@ -29,7 +29,7 @@ function Header(props) {
     <nav className="indigo">
       <div className="nav-wrapper">
         <Link
-          to={this.props.auth ? "/blogs" : "/"}
+          to={props.auth ? "/blogs" : "/"}
           className="left brand-logo"
           style={{ marginLeft: "10px" }}
         >

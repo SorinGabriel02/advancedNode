@@ -9,10 +9,10 @@ import Dashboard from "./Dashboard";
 import BlogNew from "./blogs/BlogNew";
 import BlogShow from "./blogs/BlogShow";
 
-function App(props) {
+function App({ fetchUser }) {
   useEffect(() => {
-    props.fetchUser();
-  }, []);
+    fetchUser();
+  }, [fetchUser]);
 
   return (
     <div className="container">
