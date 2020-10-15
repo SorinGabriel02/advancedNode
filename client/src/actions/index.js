@@ -1,5 +1,17 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_BLOGS, FETCH_BLOG, GOOGLE_LOGIN } from "./types";
+import {
+  FETCH_USER,
+  FETCH_BLOGS,
+  FETCH_BLOG,
+  GOOGLE_LOGIN,
+  LOGOUT,
+} from "./types";
+
+export const logout = () => async (dispatch) => {
+  await axios.get("/auth/logout");
+
+  dispatch({ type: LOGOUT });
+};
 
 export const googleLogin = () => async (dispatch) => {
   window.open("http://localhost:5000/auth/google", "_self");
@@ -33,6 +45,5 @@ export const fetchBlogs = () => async (dispatch) => {
 
 export const fetchBlog = (id) => async (dispatch) => {
   const res = await axios.get(`/api/blogs/${id}`);
-
   dispatch({ type: FETCH_BLOG, payload: res.data });
 };

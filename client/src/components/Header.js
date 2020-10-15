@@ -1,11 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { googleLogin } from "../actions";
+import { googleLogin, logout } from "../actions";
 
 function Header(props) {
   function handleClick() {
     props.googleLogin();
+  }
+
+  function handleLogout() {
+    props.logout();
   }
 
   function renderContent() {
@@ -24,7 +28,7 @@ function Header(props) {
             <Link to="/blogs">My Blogs</Link>
           </li>,
           <li key="2">
-            <a href={"/auth/logout"}>Logout</a>
+            <button onClick={handleLogout}>Logout</button>
           </li>,
         ];
     }
@@ -50,4 +54,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps, { googleLogin })(Header);
+export default connect(mapStateToProps, { googleLogin, logout })(Header);

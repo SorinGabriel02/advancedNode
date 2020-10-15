@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import map from "lodash/map";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchBlogs } from "../../actions";
@@ -9,8 +8,8 @@ function BlogList({ fetchBlogs, blogs }) {
     fetchBlogs();
   }, [fetchBlogs]);
 
-  function renderBlogs() {
-    return map(blogs, (blog) => {
+  const blogList = () =>
+    blogs.map((blog) => {
       return (
         <div className="card darken-1 horizontal" key={blog._id}>
           <div className="card-stacked">
@@ -25,9 +24,10 @@ function BlogList({ fetchBlogs, blogs }) {
         </div>
       );
     });
-  }
 
-  return <div>{renderBlogs()}</div>;
+  if (!blogs.length) return <h1>Loading...</h1>;
+
+  return <div>{blogList()}</div>;
 }
 
 function mapStateToProps({ blogs }) {
