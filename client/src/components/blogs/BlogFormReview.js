@@ -48,7 +48,7 @@ function BlogFormReview(props) {
   }
 
   return (
-    <form onSubmit={onSubmit.bind(this)}>
+    <form onSubmit={onSubmit}>
       <h5>Please confirm your entries</h5>
       {renderFields()}
 

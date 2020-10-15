@@ -1,8 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { googleLogin } from "../actions";
 
 function Header(props) {
+  function handleClick() {
+    props.googleLogin();
+  }
+
   function renderContent() {
     switch (props.auth) {
       case null:
@@ -10,7 +15,7 @@ function Header(props) {
       case false:
         return (
           <li>
-            <a href={"/auth/google"}>Login With Google</a>
+            <button onClick={handleClick}>Login With Google</button>
           </li>
         );
       default:
@@ -45,4 +50,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { googleLogin })(Header);
