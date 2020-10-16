@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js --ignore tests",
-    "test": "jest"
+    "test": "jest --config ./tests/jest.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "path-parser": "^6.1.0",
     "puppeteer": "^5.3.1",
     "redis": "^3.0.2",
+    "safe-buffer": "^5.2.1",
     "uuid": "^8.3.1"
   },
   "devDependencies": {

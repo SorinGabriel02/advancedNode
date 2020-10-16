@@ -19,7 +19,9 @@ function Header(props) {
       case false:
         return (
           <li>
-            <button onClick={handleClick}>Login With Google</button>
+            <button className="login-btn" onClick={handleClick}>
+              Login With Google
+            </button>
           </li>
         );
       default:
@@ -28,7 +30,9 @@ function Header(props) {
             <Link to="/blogs">My Blogs</Link>
           </li>,
           <li key="2">
-            <button onClick={handleLogout}>Logout</button>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
           </li>,
         ];
     }

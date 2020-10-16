@@ -23,7 +23,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 app.use(
   cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
+    maxAge: 10 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey],
   })
 );
