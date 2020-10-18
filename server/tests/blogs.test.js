@@ -65,3 +65,25 @@ describe("When logged in", () => {
     });
   });
 });
+
+describe("When user is NOT logged in", () => {
+  test("Cannot create blog post", async () => {
+    const path = "/api/blogs";
+    const bodyObj = {
+      title: "My Console Title",
+      content: "My Console Content",
+    };
+
+    const result = await page.post(path, bodyObj);
+
+    expect(result).toEqual({ error: "You must log in!" });
+  });
+
+  test("Cannot retrieve a list of posts", async () => {
+    const path = "/api/blogs";
+
+    const result = await page.get(path);
+
+    expect(result).toEqual({ error: "You must log in!" });
+  });
+});
