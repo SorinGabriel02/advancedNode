@@ -19,7 +19,7 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 
 if (process.env.NODE_ENG !== "production") app.use(morgan("dev"));
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 app.use(express.json());
 app.use(
   cookieSession({
@@ -43,7 +43,7 @@ app.get("*", (req, res) => {
 });
 // }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on port`, PORT);
 });
