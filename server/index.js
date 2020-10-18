@@ -33,14 +33,15 @@ app.use(passport.session());
 require("./routes/authRoutes")(app);
 require("./routes/blogRoutes")(app);
 
-if (["production", "ci"].includes(process.env.NODE_ENV)) {
-  const path = require("path");
-  app.use(express.static(path.join(__dirname, "../client/build")));
+// if (["production", "ci"].includes(process.env.NODE_ENV)) {
+const rootDir = __dirname + "/../";
+const path = require("path");
+app.use(express.static(path.join(rootDir, "/client/build")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve("client", "build", "index.html"));
-  });
-}
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(rootDir, "client", "build", "index.html"));
+});
+// }
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
