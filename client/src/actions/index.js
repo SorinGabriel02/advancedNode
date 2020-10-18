@@ -14,7 +14,8 @@ export const logout = () => async (dispatch) => {
 };
 
 export const googleLogin = () => async (dispatch) => {
-  window.open("http://localhost:5000/auth/google", "_self");
+  // change this port to the port the backend server is running when using dev server
+  window.open("http://localhost:3000/auth/google", "_self");
   dispatch({ type: GOOGLE_LOGIN });
 };
 
